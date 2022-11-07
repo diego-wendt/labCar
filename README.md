@@ -11,6 +11,14 @@ Este projeto foi desenvolvido em NestJs e foi a primeira avaliação do segundo 
 - Busca das viagens disponíveis pelo motorista.
 - Documentação para o aplicativo Imsomnia com as rotas e arquivos JSON.
 
+## Funcionalidades além do projeto
+
+- Todos as requisições que exigem cpf como "Param" possuem verificação para saber se o CPF está cadastrado para o motorista/passageiro.
+- A lista de viagens disponíveis realiza um filtro e só retorna as viagens que possuem a mesma cidade que o motorista está como origem da viagem.
+- Se o motorista está bloqueado, este não consegue visualizar as viagens disponíveis.
+- Para realizar a edição dos dados (PUT), o sistema verifica se o CPF enviado no PARAM existe no cadastro de motoristas/passageiros, se existe, é feita uma segunda verificação para saber se o CPF que está no body existe no banco de dados, caso não exista o sistema permite a edição. Caso exista, o sistema compara o ID que foi obtido ao buscar o CPF no campo PARAM com o ID obtido pelo CPF enviado pelo body, caso seja igual o sistema permite a edição, caso seja diferente o sistema recusa a solicitação e apresenta o status code 409.
+- Há um arquivo para configuração prévia do Insomnia com as rotas e JSON de exemplo cadastrados.
+
 ## Stack utilizada
 
 **Back-end:** Node e NestJs
