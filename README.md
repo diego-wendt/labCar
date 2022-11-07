@@ -480,6 +480,7 @@ Para rodar esse projeto, você vai precisar adicionar as seguintes variáveis de
 Incluir a Key em /src/travels/travel.service.ts no método **getRoutes**.
 
 `GOOGLE_DIRECTIONS_API_KEY`
+https://developers.google.com/maps/documentation/directions/start
 
 ## Autor
 
