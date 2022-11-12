@@ -1,10 +1,4 @@
-import {
-  IsEnum,
-  IsNotEmpty,
-  IsObject,
-  IsString,
-  Length,
-} from 'class-validator';
+import { IsNotEmpty, IsObject, IsString, Length } from 'class-validator';
 import { IsValidCPF } from 'src/utils/validators/is-cpf-valid.validator';
 import { TravelStatus } from './travel.status.enum';
 
@@ -45,6 +39,5 @@ export class Travel {
     state: string;
   };
 
-  @IsEnum(TravelStatus)
   travelStatus: TravelStatus;
 }

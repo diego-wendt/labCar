@@ -7,9 +7,15 @@ import { TravelDatabase } from './database/travel-database';
 import { DriverModule } from './driver/driver.module';
 import { PassengerModule } from './passenger/passenger.module';
 import { TravelModule } from './travels/travel.module';
+import { ConfigModule } from '@nestjs/config';
 
 @Module({
-  imports: [PassengerModule, DriverModule, TravelModule],
+  imports: [
+    PassengerModule,
+    DriverModule,
+    TravelModule,
+    ConfigModule.forRoot(),
+  ],
   controllers: [],
   providers: [
     DriverDatabase,

@@ -11,14 +11,6 @@ Este projeto foi desenvolvido em NestJs e foi a primeira avaliação do segundo 
 - Busca das viagens disponíveis pelo motorista.
 - Documentação para o aplicativo Imsomnia com as rotas e arquivos JSON.
 
-## Funcionalidades além do projeto
-
-- Todos as requisições que exigem cpf como "Param" possuem verificação para saber se o CPF está cadastrado para o motorista/passageiro.
-- A lista de viagens disponíveis realiza um filtro e só retorna as viagens que possuem a mesma cidade que o motorista está como origem da viagem.
-- Se o motorista está bloqueado, este não consegue visualizar as viagens disponíveis.
-- Para realizar a edição dos dados (PUT), o sistema verifica se o CPF enviado no PARAM existe no cadastro de motoristas/passageiros, se existe, é feita uma segunda verificação para saber se o CPF que está no body existe no banco de dados, caso não exista o sistema permite a edição. Caso exista, o sistema compara o ID que foi obtido ao buscar o CPF no campo PARAM com o ID obtido pelo CPF enviado pelo body, caso seja igual o sistema permite a edição, caso seja diferente o sistema recusa a solicitação e apresenta o status code 409.
-- Há um arquivo para configuração prévia do Insomnia com as rotas e JSON de exemplo cadastrados.
-
 ## Stack utilizada
 
 **Back-end:** Node e NestJs
@@ -383,17 +375,16 @@ Body - Json
 
 #### Cadastrar uma viagem - passageiro:
 
-| Parâmetro            | Tipo     | Descrição                          |
-| :------------------- | :------- | :--------------------------------- |
-| `cpfPassenger`       | `number` | Cpf do passageiro sem pontos.      |
-| `travelStatus`       | `string` | DEVE SER PREENCHIDO COMO "CREATED" |
-| `originAddress`      | `Array`  | Endereço do início da viagem.      |
-| `destinationAddress` | `Array`  | Endereço do destino da viagem.     |
-| `street`             | `string` | Nome da rua                        |
-| `number`             | `string` | Número do imóvel                   |
-| `neighborhood`       | `string` | Bairro                             |
-| `city`               | `string` | Cidade                             |
-| `state`              | `string` | Estado                             |
+| Parâmetro            | Tipo     | Descrição                      |
+| :------------------- | :------- | :----------------------------- |
+| `cpfPassenger`       | `number` | Cpf do passageiro sem pontos.  |
+| `originAddress`      | `Array`  | Endereço do início da viagem.  |
+| `destinationAddress` | `Array`  | Endereço do destino da viagem. |
+| `street`             | `string` | Nome da rua                    |
+| `number`             | `string` | Número do imóvel               |
+| `neighborhood`       | `string` | Bairro                         |
+| `city`               | `string` | Cidade                         |
+| `state`              | `string` | Estado                         |
 
 ```json
   POST http://localhost:3000/travels
@@ -415,7 +406,6 @@ Body - Json
 		"city": "Outra cidade qualquer",
 		"state": "XX"
 	},
-	"travelStatus":"CREATED",
 	"cpfPassenger":"67708696674"
 }
 ```
@@ -483,12 +473,11 @@ Body - Json
 
 ## Variáveis de Ambiente
 
-Para rodar esse projeto, você vai precisar adicionar as seguintes variáveis de ambiente no seu .env
+Para executar este projeto, você vai precisar adicionar a seguinte variável de ambiente no seu .env
 
-Incluir a Key em /src/travels/travel.service.ts no método **getRoutes**.
+Google API Directions - https://developers.google.com/maps/documentation/directions/overview
 
 `GOOGLE_DIRECTIONS_API_KEY`
-https://developers.google.com/maps/documentation/directions/start
 
 ## Autor
 
